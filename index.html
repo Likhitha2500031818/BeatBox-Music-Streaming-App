@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeatBox - Music Streaming App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h2>🎵 BeatBox</h2>
+
+    <nav>
+    <button onclick="showSection('home')">Home</button>
+
+    <button onclick="showSection('songs')">
+        Songs
+    </button>
+
+    <button onclick="showSection('playlist')">
+        Playlist
+    </button>
+
+    <button onclick="showSection('login')">
+        Login
+    </button>
+
+    <button onclick="showSection('adminLogin')">
+        Admin
+    </button>
+</nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="section">
+
+    <div class="hero">
+        <h1>Feel The Music 🎧</h1>
+        <p>Listen to your favorite songs anytime.</p>
+
+        <input
+            id="search"
+            type="text"
+            placeholder="Search songs..."
+            oninput="searchSongs()"
+        >
+    </div>
+
+    <h2>Popular Songs</h2>
+
+    <div id="songContainer" class="songs"></div>
+
+</section>
+
+
+<!-- SONGS -->
+<section id="songs" class="section hidden">
+
+    <h1>🎶 All Songs</h1>
+
+    <div id="allSongs" class="songs"></div>
+
+</section>
+
+
+<!-- PLAYLIST -->
+<section id="playlist" class="section hidden">
+
+    <h1>❤️ My Playlist</h1>
+
+    <div id="playlistContainer" class="songs"></div>
+
+</section>
+
+<!-- LOGIN -->
+<section id="login" class="section hidden">
+
+    <div class="form-card">
+
+        <h1>🔐 Login</h1>
+
+        <input
+            id="loginEmail"
+            type="email"
+            placeholder="Email"
+        >
+
+        <input
+            id="loginPassword"
+            type="password"
+            placeholder="Password"
+        >
+
+        <button onclick="login()">Login</button>
+
+        <p id="loginMessage"></p>
+
+        <p>
+            New user?
+            <button onclick="showSection('signup')">
+                Sign Up
+            </button>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SIGN UP -->
+<section id="signup" class="section hidden">
+
+    <div class="form-card">
+
+        <h1>📝 Create Account</h1>
+
+        <input
+            id="signupName"
+            type="text"
+            placeholder="Your Name"
+        >
+
+        <input
+            id="signupEmail"
+            type="email"
+            placeholder="Email"
+        >
+
+        <input
+            id="signupPassword"
+            type="password"
+            placeholder="Password"
+        >
+
+        <button onclick="signup()">
+            Sign Up
+        </button>
+
+        <p id="signupMessage"></p>
+
+        <p>
+            Already have an account?
+            <button onclick="showSection('login')">
+                Login
+            </button>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ADMIN LOGIN -->
+<section id="adminLogin" class="section hidden">
+
+    <div class="form-card">
+
+        <h1>👨‍💼 Admin Login</h1>
+
+        <input
+            id="adminEmail"
+            type="email"
+            placeholder="Admin Email"
+        >
+
+        <input
+            id="adminPassword"
+            type="password"
+            placeholder="Admin Password"
+        >
+
+        <button onclick="adminLogin()">
+            Login as Admin
+        </button>
+
+        <p id="adminMessage"></p>
+
+    </div>
+
+</section>
+
+
+<!-- ADMIN DASHBOARD -->
+<section id="admin" class="section hidden">
+
+    <h1>🎵 Admin Dashboard</h1>
+
+    <div class="form-card">
+
+        <h2>Add New Song</h2>
+
+        <input
+            id="songTitle"
+            placeholder="Song Title"
+        >
+
+        <input
+            id="songArtist"
+            placeholder="Artist Name"
+        >
+
+        <input
+            id="songImage"
+            placeholder="Image URL"
+        >
+
+        <input
+            id="songAudio"
+            placeholder="Audio URL"
+        >
+
+        <button onclick="addSong()">
+            ➕ Add Song
+        </button>
+
+        <button onclick="adminLogout()">
+            🚪 Logout
+        </button>
+
+        <p id="adminActionMessage"></p>
+
+    </div>
+
+    <h2>Manage Songs</h2>
+
+    <div id="adminSongs" class="songs"></div>
+
+</section>
+
+
+<!-- MUSIC PLAYER -->
+<div class="player">
+
+    <div>
+        <strong id="currentSong">Select a song</strong>
+    </div>
+
+    <audio id="audioPlayer" controls></audio>
+
+    <button onclick="stopMusic()">⏹ Stop</button>
+
+</div>
+
+
+<footer>
+    <p>🎵 BeatBox Music Streaming App</p>
+    <p>Good Music • Good Mood ❤️</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
